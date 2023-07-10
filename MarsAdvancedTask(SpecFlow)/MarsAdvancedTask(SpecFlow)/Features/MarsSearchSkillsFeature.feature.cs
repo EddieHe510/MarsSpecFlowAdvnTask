@@ -20,23 +20,23 @@ namespace MarsAdvancedTask_SpecFlow_.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("MarsProfileFeature")]
-    public partial class MarsProfileFeatureFeature
+    [NUnit.Framework.DescriptionAttribute("MarsSearchSkillsFeature")]
+    public partial class MarsSearchSkillsFeatureFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "MarsProfileFeature.feature"
+#line 1 "MarsSearchSkillsFeature.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "MarsProfileFeature", "As a User\r\nI would like to sign in to the Mars\r\nSo that I can add, edit my profil" +
-                    "e", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "MarsSearchSkillsFeature", "As a Exsting User\r\nI would like to sign in to the Mars\r\nSo that I can search skil" +
+                    "ls by using filter", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,10 +75,10 @@ namespace MarsAdvancedTask_SpecFlow_.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add my user profile")]
+        [NUnit.Framework.DescriptionAttribute("Search skill by using online option filter")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        [NUnit.Framework.TestCaseAttribute("English", "Chinese", "Hi Everyone, welcome to the JAZZ music show!!", null)]
-        public void AddMyUserProfile(string language1, string language2, string description, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Music", null)]
+        public void SearchSkillByUsingOnlineOptionFilter(string skillName1, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "tag1"};
@@ -88,10 +88,8 @@ namespace MarsAdvancedTask_SpecFlow_.Features
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Language1", language1);
-            argumentsOfScenario.Add("Language2", language2);
-            argumentsOfScenario.Add("Description", description);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add my user profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("SkillName1", skillName1);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search skill by using online option filter", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -103,40 +101,34 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
-testRunner.Given("I logged into the Mars portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I logged into the Mars portal by using valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
-testRunner.When("I see my account name on the user profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I go to the home page by click the Mars Logo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-testRunner.And("I add my user details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And(string.Format("I insert \'{0}\' into the search bar and select the online option", skillName1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
-testRunner.Then(string.Format("I am add my first language including \'{0}\' name and language level", language1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I click into the first listing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
-testRunner.And(string.Format("Then I am add my second language including \'{0}\' name and language level", language2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 14
-testRunner.Then(string.Format("I am add my \'{0}\' into the description text area", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I should see the location type is showing online option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit my user profile")]
-        [NUnit.Framework.TestCaseAttribute("Cantonese", "Japanese", "I like different types of languages very much, because they each have their own c" +
-            "harm, if you also like different types of languages, welcome to join me.", null)]
-        public void EditMyUserProfile(string language3, string language4, string description, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Search skill by using on-site option filter")]
+        [NUnit.Framework.TestCaseAttribute("Business", null)]
+        public void SearchSkillByUsingOn_SiteOptionFilter(string skillName2, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Language3", language3);
-            argumentsOfScenario.Add("Language4", language4);
-            argumentsOfScenario.Add("Description", description);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit my user profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 21
+            argumentsOfScenario.Add("SkillName2", skillName2);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search skill by using on-site option filter", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -146,23 +138,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 20
+testRunner.Given("I logged into the Mars portal by using valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 21
+testRunner.When("I go to the home page by click the Mars Logo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
 #line 22
-testRunner.Given("I logged into the Mars portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.And(string.Format("I insert \'{0}\' into the search bar and select the on-site option", skillName2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 23
-testRunner.When("I see my account name on the user profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("I click into the first listing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 24
-testRunner.Then("I can edit my profile user details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 25
-testRunner.And(string.Format("I am edit my first language including \'{0}\' name and language level", language3), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 26
-testRunner.And(string.Format("I am edit my second language including \'{0}\' name and language level", language4), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 27
-testRunner.Then(string.Format("I edit my \'{0}\' into the description text area", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I should see the location type is showing on-site option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

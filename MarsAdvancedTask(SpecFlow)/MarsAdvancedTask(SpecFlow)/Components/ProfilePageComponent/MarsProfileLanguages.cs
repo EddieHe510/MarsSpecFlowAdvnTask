@@ -32,13 +32,10 @@ namespace MarsAdvancedTask.Components.ProfilePageComponents
         private IWebElement languageUpdateButton => marsDriver.FindElement(By.XPath("//input[@value=\"Update\"]"));
         private IWebElement languageMessage => marsDriver.FindElement(By.XPath("/html/body/div[1]/div"));
 
-
-
         public void marsProfileJumpToLanguageTag()
         {
             languagesTag.Click();
         }
-
 
         public void marsAddProfileLanguage1(string name, string language1)
         {
@@ -52,9 +49,8 @@ namespace MarsAdvancedTask.Components.ProfilePageComponents
             languageLevel.Click();
             basicOption.Click();
             languageAddButton.Click();
-
-
         }
+
         public void marsAddProfileLanguage2(string name, string language2)
         {
             MarsExtentReporting.MarsExtentReportingLogInfo(name);
@@ -69,31 +65,42 @@ namespace MarsAdvancedTask.Components.ProfilePageComponents
             languageAddButton.Click();
         }
 
-    //    public void marsProfileLanguageEdit()
-    //    {
-    //        // Edited first language (Japanese)
-    //        firstLanguagePenIcon.Click();
-    //        languageTextBox.Clear();
-    //        languageTextBox.SendKeys(language3.language);
-    //        languageLevel.Click();
-    //        nativeOption.Click();
-    //        languageUpdateButton.Click();
+        public void marsEditProfileLanguage1(string name, string language3)
+        {
+            MarsExtentReporting.MarsExtentReportingLogInfo(name);
+            firstLanguagePenIcon.Click();
 
-    //        // Edited second language
-    //        MarsWait.MarsWaitToBeClickable("XPath", 5, "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr/td[3]/span[1]/i");
-    //        secondLanguagePenIcon.Click();
-    //        languageTextBox.Clear();
-    //        languageTextBox.SendKeys(language4.language);
-    //        languageLevel.Click();
-    //        conversationalOption.Click();
-    //        languageUpdateButton.Click();
-    //    }
+            MarsWait.MarsWaitToBeVisible("Name", 5, "name");
+            languageTextBox.Clear();
+            languageTextBox.SendKeys(language3);
 
-    //    public void marsProfileLanguageDelete()
-    //    {
-    //        firstLanguageDeleteButton.Click();
-    //        secondLanguageDeleteButton.Click();
-    //    }
+            languageLevel.Click();
+            nativeOption.Click();
+            languageUpdateButton.Click();
+
+        }
+        public void marsEditProfileLanguage2(string name, string language4)
+        {
+            MarsExtentReporting.MarsExtentReportingLogInfo(name);
+            // Edited second language
+            MarsWait.MarsWaitToBeClickable("XPath", 5, "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr/td[3]/span[1]/i");
+            secondLanguagePenIcon.Click();
+
+            Thread.Sleep(2000);
+            languageTextBox.Clear();
+            languageTextBox.SendKeys(language4);
+
+            languageLevel.Click();
+            conversationalOption.Click();
+            languageUpdateButton.Click();
+        }
+
+
+        public void marsProfileLanguageDelete()
+        {
+            firstLanguageDeleteButton.Click();
+            secondLanguageDeleteButton.Click();
+        }
     }
 }
 

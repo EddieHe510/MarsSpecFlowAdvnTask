@@ -1,14 +1,11 @@
 ﻿using NUnit.Framework.Interfaces;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using MarsAdvancedTask.Drivers;
+using MarsAdvancedTask.Components.LoginPageComponents;
 
 namespace MarsAdvancedTask_SpecFlow_.Driver
 {
@@ -19,7 +16,7 @@ namespace MarsAdvancedTask_SpecFlow_.Driver
         protected MarsBroswer marsBroswer;
 
 
-        [BeforeScenario]
+        [BeforeScenario(Order = 0)]
         public void MarsDriverStartWebsite()
         {
             MarsExtentReporting.MarsExtentReportingCreateTest(TestContext.CurrentContext.Test.MethodName);
@@ -30,6 +27,14 @@ namespace MarsAdvancedTask_SpecFlow_.Driver
             marsBroswer = new MarsBroswer(marsDriver);
         }
 
+        [BeforeScenario(Order = 1)]
+        public void UserData()
+        {
+            var jsonPath = File.ReadAllText(@"G:\AdvancedTask(SepcFlow)\AdvancedTask(Eddie)\MarsSpecFlowAdvnTask\MarsAdvancedTask(SpecFlow)\MarsAdvancedTask(SpecFlow)\TestData\LoginData\UserData.json");
+            var userData = JsonConvert.DeserializeObject<UserData>(jsonPath);
+
+            ScenarioContext.Current.Set(userData, "UserData");
+        }
 
         [AfterScenario]
         public void MarsDriverCloseBrowser()

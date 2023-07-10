@@ -6,6 +6,7 @@
     <RootNamespace>MarsAdvancedTask_SpecFlow_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>

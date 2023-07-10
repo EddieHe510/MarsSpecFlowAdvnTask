@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MarsAdvancedTask.Components.LoginPageComponents.UserData;
 
 namespace MarsAdvancedTask.Components.LoginPageComponents
 {
-    public class Users
+    public class UserData
     {
-        public List<UserData> users { get; set; }
-
+        public string emailAddress { get; set; }
+        public string password { get; set; }
     }
 }
