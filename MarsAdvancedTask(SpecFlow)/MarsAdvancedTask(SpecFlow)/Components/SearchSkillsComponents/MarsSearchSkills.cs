@@ -2,7 +2,6 @@
 using MarsAdvancedTask_SpecFlow_.Driver;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System.Xml.Linq;
 
 namespace MarsAdvancedTask.Components.SearchSkillsComponents
 {
@@ -48,32 +47,18 @@ namespace MarsAdvancedTask.Components.SearchSkillsComponents
             firstSkill.Click();
         }
 
-        public void assertLocationTypeAsOnline(string name)
+        public string assertLocationTypeAsOnline(string name)
         {
             MarsExtentReporting.MarsExtentReportingLogInfo(name);
             MarsWait.MarsWaitToBeVisible("XPath", 5, "//*[@id=\"service-detail-section\"]/div[2]/div/div[2]/div[1]/div[1]/div[2]/div[2]/div/div/div[3]/div/div[3]/div/div[2]");
-            if (locationType.Text == "Online")
-            {
-                Console.WriteLine("Pass");
-            }
-            else
-            {
-                Assert.Fail("Actual Location Type and expected Location Type do not match!");
-            }
+            return locationType.Text;         
         }
 
-        public void assertLocationTypeAsOnSite(string name)
+        public string assertLocationTypeAsOnSite(string name)
         {
             MarsExtentReporting.MarsExtentReportingLogInfo(name);
             MarsWait.MarsWaitToBeVisible("XPath", 5, "//*[@id=\"service-detail-section\"]/div[2]/div/div[2]/div[1]/div[1]/div[2]/div[2]/div/div/div[3]/div/div[3]/div/div[2]");
-            if (locationType.Text == "On-Site")
-            {
-                Console.WriteLine("Pass");
-            }
-            else
-            {
-                Assert.Fail("Actual Location Type and expected Location Type do not match!");
-            }
+            return locationType.Text;         
         }
     }
 }

@@ -1,6 +1,7 @@
 using MarsAdvancedTask.Components.LoginPageComponents;
 using MarsAdvancedTask.Components.NotificationComponents;
 using MarsAdvancedTask_SpecFlow_.Components.LoginPageComponent;
+using NUnit.Framework;
 using System;
 using TechTalk.SpecFlow;
 
@@ -9,8 +10,15 @@ namespace MarsAdvancedTask_SpecFlow_.FeatureStepDefinitions
     [Binding]
     public class MarsNotificationFeatureStepDefinitions
     {
-        MarsLogin login = new MarsLogin();
-        MarsNotification notification = new MarsNotification();
+        private MarsLogin login;
+        private MarsNotification notification;
+
+        public MarsNotificationFeatureStepDefinitions()
+        {
+            login = new MarsLogin();
+            notification = new MarsNotification();
+        }
+
 
         [Given(@"I logged into the Mars portal using valid credentials")]
         public void GivenILoggedIntoTheMarsPortalUsingValidCredentials()
@@ -39,7 +47,8 @@ namespace MarsAdvancedTask_SpecFlow_.FeatureStepDefinitions
         [Then(@"I should see the successfull message pop-up to the portal")]
         public void ThenIShouldSeeTheSuccessfullMessagePop_UpToThePortal()
         {
-            notification.assertTheSuccessfulMessage("The first notification has been marked!");
+            string successfulMessage = notification.assertTheSuccessfulMessage("The first notification has been marked!");
+            Assert.That(successfulMessage == "Notification updated", "Actual message and expected message do not match!");
         }
     }
 }

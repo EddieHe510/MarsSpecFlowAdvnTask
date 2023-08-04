@@ -43,18 +43,16 @@ namespace MarsAdvancedTask.Components.ProfilePageComponents
             // Identify EarnTaget and select "More than $1000 per month"
             earnTargetPenIcon.Click();
             earnTargetDropdownList.Click();
-            moreThanOption.Click();
-
-            MarsWait.MarsWaitToBeVisible("XPath", 5, "/html/body/div[1]/div");
-            if (updateSuccessfullyMessage.Text == "Availability updated")
-            {
-                Console.WriteLine("Pass");
-            }
-            else
-            {
-                Assert.Fail("Actual message and expected message do not match!");
-            }
+            moreThanOption.Click();           
         }
+
+        public string assertSuccessAddMessage()
+        {
+            MarsWait.MarsWaitToBeVisible("XPath", 5, "/html/body/div[1]/div");
+            return updateSuccessfullyMessage.Text;
+        }
+
+
 
         public void editUserDetails()
         {
@@ -73,16 +71,12 @@ namespace MarsAdvancedTask.Components.ProfilePageComponents
             earnTargetPenIcon.Click();
             earnTargetDropdownList.Click();
             lessThanOption.Click();
+        }
 
+        public string assertSuccessEditMessage()
+        {
             MarsWait.MarsWaitToBeVisible("XPath", 5, "/html/body/div[1]/div");
-            if (updateSuccessfullyMessage.Text == "Availability updated")
-            {
-                Console.WriteLine("Pass");
-            }
-            else
-            {
-                Assert.Fail("Actual message and expected message do not match!");
-            }
+            return updateSuccessfullyMessage.Text;
         }
     }
 

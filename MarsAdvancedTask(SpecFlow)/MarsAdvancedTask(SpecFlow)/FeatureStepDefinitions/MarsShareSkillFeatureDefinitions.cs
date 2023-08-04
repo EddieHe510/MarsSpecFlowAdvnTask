@@ -17,10 +17,16 @@ namespace MarsAdvancedTask_SpecFlow_.FeatureStepDefinitions
     [Binding]
     public class MarsShareSkillFeatureDefinitions
     {
-        MarsLogin login = new MarsLogin();
-        MarsShareSkills shareSkills = new MarsShareSkills();
-        MarsManageListings manageListings = new MarsManageListings();
+        private MarsLogin login;
+        private MarsShareSkills shareSkills;
+        private MarsManageListings manageListings;
 
+        public MarsShareSkillFeatureDefinitions()
+        {
+            login = new MarsLogin();
+            shareSkills = new MarsShareSkills();
+            manageListings = new MarsManageListings();
+        }
 
         [Given(@"I logged into the Mars portal with vaild credentials")]
         public void GivenILoggedIntoTheMarsPortalWithVaildCredentials()

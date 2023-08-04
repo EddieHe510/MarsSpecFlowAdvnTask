@@ -36,18 +36,11 @@ namespace MarsAdvancedTask.Components.NotificationComponents
             markAsReadTag.Click();
         }
 
-        public void assertTheSuccessfulMessage(string name)
+        public string assertTheSuccessfulMessage(string name)
         {
             MarsExtentReporting.MarsExtentReportingLogInfo(name);
             MarsWait.MarsWaitToBeVisible("XPath", 10, "/html/body/div[1]/div");
-            if (successfulMessage.Text == "Notification updated")
-            {
-                Console.WriteLine("Pass");
-            }
-            else
-            {
-                Assert.Fail("Actual message and expected message do not match!");
-            }
+            return successfulMessage.Text;           
         }
     
     }

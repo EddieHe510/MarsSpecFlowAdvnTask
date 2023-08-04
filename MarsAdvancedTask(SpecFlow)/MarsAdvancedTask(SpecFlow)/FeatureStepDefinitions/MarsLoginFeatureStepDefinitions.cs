@@ -1,8 +1,6 @@
 using MarsAdvancedTask.Components.LoginPageComponents;
 using MarsAdvancedTask_SpecFlow_.Components.LoginPageComponent;
 using MarsAdvancedTask_SpecFlow_.Driver;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-using MongoDB.Bson.IO;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -11,8 +9,12 @@ namespace MarsAdvancedTask.FeatureStepDefinitions
     [Binding]
     public class MarsLoginFeatureStepDefinitions : MarsHook
     {
+        private MarsLogin login;
 
-        MarsLogin login = new MarsLogin();
+        public MarsLoginFeatureStepDefinitions()
+        {
+            login = new MarsLogin();
+        }
 
         [Given(@"I click the Sign In button")]
         public void ThenIClickTheSignInButton()

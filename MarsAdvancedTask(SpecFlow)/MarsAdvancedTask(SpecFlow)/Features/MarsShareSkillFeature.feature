@@ -12,7 +12,7 @@ And I complated all the column '<Title>', '<SKDescription>', '<Tag1>', '<Tag2>',
 
 Examples: 
 | Title     | SKDescription                                   | Tag1 | Tag2      | StartDate  | EndDate    | StartTime | EndTime | SETag1 | SETag2 |
-| Jazz Club | Hi Everyone, welcome to the JAZZ music show!!   | Jazz | LiveHouse | 30/07/2023 | 20/12/2023 | 9:00AM    | 12:00PM | Blue   | Funk   |
+| Jazz Club | Hi Everyone, welcome to the JAZZ music show!!   | Jazz | LiveHouse | 30/08/2023 | 20/12/2023 | 9:00AM    | 12:00PM | Blue   | Funk   |
 
 
 Scenario: Delete the exsting listing

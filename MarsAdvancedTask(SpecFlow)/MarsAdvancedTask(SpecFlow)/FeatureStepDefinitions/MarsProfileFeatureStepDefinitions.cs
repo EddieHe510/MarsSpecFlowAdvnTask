@@ -17,10 +17,21 @@ namespace MarsAdvancedTask.FeatureStepDefinitions
     [Binding]
     public class MarsProfileFeatureStepDefinitions
     {
-        MarsLogin login = new MarsLogin();
-        MarsProfilePage profilePage = new MarsProfilePage();
-        MarsProfileDescription profileDescription = new MarsProfileDescription();
-        MarsProfileLanguages profileLanguages = new MarsProfileLanguages();
+        private MarsLogin login;
+        private MarsProfilePage profilePage;
+        private MarsProfileUserDetails userDetails;
+        private MarsProfileDescription profileDescription;
+        private MarsProfileLanguages profileLanguages;
+
+        public MarsProfileFeatureStepDefinitions()
+        {
+            login = new MarsLogin();
+            profilePage = new MarsProfilePage();
+            profileDescription = new MarsProfileDescription();
+            profileLanguages = new MarsProfileLanguages();
+            userDetails = new MarsProfileUserDetails();
+        }
+
 
         [Given(@"I logged into the Mars portal")]
         public void GivenILoggedIntoTheMarsPortal()
@@ -47,6 +58,13 @@ namespace MarsAdvancedTask.FeatureStepDefinitions
             profilePage.addProfileUserDetail("User details has been added!!");
         }
 
+        [Then(@"I should see the add successfull message")]
+        public void ThenIShouldSeeTheAddSuccessfullMessage()
+        {
+            string updateSuccessfullyMessage = userDetails.assertSuccessAddMessage();
+            Assert.That(updateSuccessfullyMessage == "Availability updated", "Actual message and expected message do not match!");
+        }
+
         [Then(@"I am add my first language including '([^']*)' name and language level")]
         public void ThenIAmAddMyFirstLanguageIncludingNameAndLanguageLevel(string language1)
         {
@@ -70,6 +88,13 @@ namespace MarsAdvancedTask.FeatureStepDefinitions
         public void ThenICanEditMyProfileUserDetails()
         {
             profilePage.editProfileUserDetail("User details has been edit!!");
+        }
+
+        [Then(@"I should see the edit successfull message")]
+        public void ThenIShouldSeeTheEditSuccessfullMessage()
+        {
+            string updateSuccessfullyMessage = userDetails.assertSuccessEditMessage();
+            Assert.That(updateSuccessfullyMessage == "Availability updated", "Actual message and expected message do not match!");
         }
 
         [Then(@"I am edit my first language including '([^']*)' name and language level")]

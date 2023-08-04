@@ -9,6 +9,7 @@ Scenario Outline: Add my user profile
 Given I logged into the Mars portal
 When I see my account name on the user profile page
 And I add my user details
+Then I should see the add successfull message
 Then I am add my first language including '<Language1>' name and language level
 And Then I am add my second language including '<Language2>' name and language level
 Then I am add my '<Description>' into the description text area
@@ -22,6 +23,7 @@ Scenario Outline: Edit my user profile
 Given I logged into the Mars portal
 When I see my account name on the user profile page
 Then I can edit my profile user details
+Then I should see the edit successfull message
 And I am edit my first language including '<Language3>' name and language level
 And I am edit my second language including '<Language4>' name and language level
 Then I edit my '<Description>' into the description text area
