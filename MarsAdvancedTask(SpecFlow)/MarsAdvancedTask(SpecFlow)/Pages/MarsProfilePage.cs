@@ -38,6 +38,7 @@ namespace MarsAdvancedTask.Pages
             MarsExtentReporting.MarsExtentReportingLogInfo(name);
             userDetails.addUserDetails();
         }
+
         public void editProfileUserDetail(string name)
         {
             MarsExtentReporting.MarsExtentReportingLogInfo(name);

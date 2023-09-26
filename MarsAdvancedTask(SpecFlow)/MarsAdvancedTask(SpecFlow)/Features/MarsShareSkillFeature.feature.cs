@@ -76,7 +76,7 @@ namespace MarsAdvancedTask_SpecFlow_.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Completed the share skill form")]
-        [NUnit.Framework.TestCaseAttribute("Jazz Club", "Hi Everyone, welcome to the JAZZ music show!!", "Jazz", "LiveHouse", "30/07/2023", "20/12/2023", "9:00AM", "12:00PM", "Blue", "Funk", null)]
+        [NUnit.Framework.TestCaseAttribute("Jazz Club", "Hi Everyone, welcome to the JAZZ music show!!", "Jazz", "LiveHouse", "30/09/2023", "20/12/2023", "9:00AM", "12:00PM", "Blue", "Funk", null)]
         public void CompletedTheShareSkillForm(string title, string sKDescription, string tag1, string tag2, string startDate, string endDate, string startTime, string endTime, string sETag1, string sETag2, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -103,15 +103,21 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 8
-testRunner.Given("I logged into the Mars portal with vaild credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I logged into the Mars portal by using second user valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
-testRunner.Then("I should see my account name on the user profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I clicked the login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 10
-testRunner.Then("I click the Share skill button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I input the user email address and password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
+testRunner.When("I should see my account name on the user profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 12
+testRunner.Then("I click the Share skill button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 13
 testRunner.And(string.Format("I complated all the column \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\', \'{5}\', \'{6}\', \'{7}\'" +
                             ", \'{8}\', \'<SETage2>\'", title, sKDescription, tag1, tag2, startDate, endDate, startTime, endTime, sETag1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -126,7 +132,7 @@ testRunner.And(string.Format("I complated all the column \'{0}\', \'{1}\', \'{2}
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete the exsting listing", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 18
+#line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -136,16 +142,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 19
-testRunner.Given("I logged into the Mars portal with vaild credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 20
-testRunner.Then("I should see my account name on the user profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 21
-testRunner.Then("I click the Manage Listings button and jump to that page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I logged into the Mars portal by using second user valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 22
+testRunner.Then("I clicked the login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 23
+testRunner.Then("I input the user email address and password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 24
+testRunner.When("I should see my account name on the user profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 25
+testRunner.Then("I click the Manage Listings button and jump to that page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 26
 testRunner.And("I delete listings name Jazz Club", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
