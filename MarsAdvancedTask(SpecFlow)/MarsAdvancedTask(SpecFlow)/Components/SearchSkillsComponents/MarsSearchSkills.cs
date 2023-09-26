@@ -8,7 +8,7 @@ namespace MarsAdvancedTask.Components.SearchSkillsComponents
     public class MarsSearchSkills : MarsHook
     {
         private IWebElement marsLogo => marsDriver.FindElement(By.XPath("//a[@href=\"/\"]"));
-        private IWebElement searchBarTextBox => marsDriver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[3]/div/input"));
+        private IWebElement searchBarTextBox => marsDriver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[4]/div/input"));
         private IWebElement searchButton => marsDriver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[3]/div/button"));
         private IWebElement filterOnlineOption => marsDriver.FindElement(By.XPath("//*[@id=\"service-search-section\"]/div[2]/div/section/div/div[1]/div[5]/button[1]"));
         private IWebElement filterOnsiteOption => marsDriver.FindElement(By.XPath("//*[@id=\"service-search-section\"]/div[2]/div/section/div/div[1]/div[5]/button[2]"));

@@ -4,6 +4,7 @@ using MarsAdvancedTask.Components.SearchSkillsComponents;
 using MarsAdvancedTask.Components.ShareSkillComponents;
 using MarsAdvancedTask_SpecFlow_.Components.LoginPageComponent;
 using MarsAdvancedTask_SpecFlow_.Driver;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -28,10 +29,24 @@ namespace MarsAdvancedTask_SpecFlow_.FeatureStepDefinitions
             manageListings = new MarsManageListings();
         }
 
-        [Given(@"I logged into the Mars portal with vaild credentials")]
-        public void GivenILoggedIntoTheMarsPortalWithVaildCredentials()
+        [Given(@"I logged into the Mars portal by using second user valid credentials")]
+        public void GivenILoggedIntoTheMarsPortalByUsingSecondUserValidCredentials()
+        {
+            var jsonPath = File.ReadAllText(@"G:\AdvancedTask(SepcFlow)\AdvancedTask(Eddie)\MarsSpecFlowAdvnTask\MarsAdvancedTask(SpecFlow)\MarsAdvancedTask(SpecFlow)\TestData\LoginData\UserData1.json");
+            var userData = JsonConvert.DeserializeObject<UserData>(jsonPath);
+
+            ScenarioContext.Current.Set(userData, "UserData");
+        }
+
+        [Then(@"I clicked the login button")]
+        public void ThenIClickedTheLoginButton()
         {
             login.clickSignInButton();
+        }
+
+        [Then(@"I input the user email address and password")]
+        public void ThenIInputTheUserEmailAddressAndPassword()
+        {
             var jsonData = ScenarioContext.Current.Get<UserData>("UserData");
 
             string signinEmailAddress = jsonData.emailAddress;
@@ -40,8 +55,8 @@ namespace MarsAdvancedTask_SpecFlow_.FeatureStepDefinitions
             login.loginWithCredentails(signinEmailAddress, signinPassword);
         }
 
-        [Then(@"I should see my account name on the user profile page")]
-        public void ThenIShouldSeeMyAccountNameOnTheUserProfilePage()
+        [When(@"I should see my account name on the user profile page")]
+        public void WhenIShouldSeeMyAccountNameOnTheUserProfilePage()
         {
             string expecedAccountName = login.assertAccountName();
             Assert.That(expecedAccountName == "Eddie He", "Actual account name and expected account name do not match!");

@@ -6,7 +6,9 @@ So that I can add, edit my profile
 
 @tag1
 Scenario Outline: Add my user profile
-Given I logged into the Mars portal
+Given I use the first user json data to sigin in the Mars portal
+Then I click the sigin button
+Then I insert the first user email address and password
 When I see my account name on the user profile page
 And I add my user details
 Then I should see the add successfull message
@@ -20,7 +22,9 @@ Examples:
 
 
 Scenario Outline: Edit my user profile
-Given I logged into the Mars portal
+Given I use the first user json data to sigin in the Mars portal
+Then I click the sigin button
+Then I insert the first user email address and password
 When I see my account name on the user profile page
 Then I can edit my profile user details
 Then I should see the edit successfull message

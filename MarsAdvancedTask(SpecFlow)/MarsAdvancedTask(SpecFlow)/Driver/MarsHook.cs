@@ -16,7 +16,7 @@ namespace MarsAdvancedTask_SpecFlow_.Driver
         protected MarsBroswer marsBroswer;
 
 
-        [BeforeScenario(Order = 0)]
+        [BeforeScenario]
         public void MarsDriverStartWebsite()
         {
             MarsExtentReporting.MarsExtentReportingCreateTest(TestContext.CurrentContext.Test.MethodName);
@@ -25,15 +25,6 @@ namespace MarsAdvancedTask_SpecFlow_.Driver
             marsDriver.Navigate().GoToUrl("http://localhost:5000/");
 
             marsBroswer = new MarsBroswer(marsDriver);
-        }
-
-        [BeforeScenario(Order = 1)]
-        public void UserJsonData()
-        {
-            var jsonPath = File.ReadAllText(@"G:\AdvancedTask(SepcFlow)\AdvancedTask(Eddie)\MarsSpecFlowAdvnTask\MarsAdvancedTask(SpecFlow)\MarsAdvancedTask(SpecFlow)\TestData\LoginData\UserData1.json");
-            var userData = JsonConvert.DeserializeObject<UserData>(jsonPath);
-
-            ScenarioContext.Current.Set(userData, "UserData");
         }
 
         [AfterScenario]

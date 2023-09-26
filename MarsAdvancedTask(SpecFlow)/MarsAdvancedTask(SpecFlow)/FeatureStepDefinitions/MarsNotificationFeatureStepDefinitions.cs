@@ -1,6 +1,7 @@
 using MarsAdvancedTask.Components.LoginPageComponents;
 using MarsAdvancedTask.Components.NotificationComponents;
 using MarsAdvancedTask_SpecFlow_.Components.LoginPageComponent;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
 using TechTalk.SpecFlow;
@@ -19,11 +20,24 @@ namespace MarsAdvancedTask_SpecFlow_.FeatureStepDefinitions
             notification = new MarsNotification();
         }
 
+        [Given(@"I use second user json file to sign in the portal")]
+        public void GivenIUseSecondUserJsonFileToSignInThePortal()
+        {
+            var jsonPath = File.ReadAllText(@"G:\AdvancedTask(SepcFlow)\AdvancedTask(Eddie)\MarsSpecFlowAdvnTask\MarsAdvancedTask(SpecFlow)\MarsAdvancedTask(SpecFlow)\TestData\LoginData\UserData2.json");
+            var userData = JsonConvert.DeserializeObject<UserData>(jsonPath);
 
-        [Given(@"I logged into the Mars portal using valid credentials")]
-        public void GivenILoggedIntoTheMarsPortalUsingValidCredentials()
+            ScenarioContext.Current.Set(userData, "UserData");
+        }
+
+        [Then(@"I click the login button")]
+        public void ThenIClickTheLoginButton()
         {
             login.clickSignInButton();
+        }
+
+        [Then(@"I insert vaild email and password")]
+        public void ThenIInsertVaildEmailAndPassword()
+        {
             var jsonData = ScenarioContext.Current.Get<UserData>("UserData");
 
             string signinEmailAddress = jsonData.emailAddress;

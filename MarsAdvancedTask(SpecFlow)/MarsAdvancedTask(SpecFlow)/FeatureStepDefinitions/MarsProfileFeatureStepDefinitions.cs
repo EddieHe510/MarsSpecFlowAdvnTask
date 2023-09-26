@@ -3,6 +3,7 @@ using MarsAdvancedTask.Components.ProfilePageComponents;
 using MarsAdvancedTask.Pages;
 using MarsAdvancedTask_SpecFlow_.Components.LoginPageComponent;
 using MarsAdvancedTask_SpecFlow_.Components.ProfilePageComponent;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using RazorEngine;
 using System;
@@ -32,11 +33,24 @@ namespace MarsAdvancedTask.FeatureStepDefinitions
             userDetails = new MarsProfileUserDetails();
         }
 
+        [Given(@"I use the first user json data to sigin in the Mars portal")]
+        public void GivenIUseTheFirstUserJsonDataToSiginInTheMarsPortal()
+        {
+            var jsonPath = File.ReadAllText(@"G:\AdvancedTask(SepcFlow)\AdvancedTask(Eddie)\MarsSpecFlowAdvnTask\MarsAdvancedTask(SpecFlow)\MarsAdvancedTask(SpecFlow)\TestData\LoginData\UserData2.json");
+            var userData = JsonConvert.DeserializeObject<UserData>(jsonPath);
 
-        [Given(@"I logged into the Mars portal")]
-        public void GivenILoggedIntoTheMarsPortal()
+            ScenarioContext.Current.Set(userData, "UserData");
+        }
+
+        [Then(@"I click the sigin button")]
+        public void ThenIClickTheSiginButton()
         {
             login.clickSignInButton();
+        }
+
+        [Then(@"I insert the first user email address and password")]
+        public void ThenIInsertTheFirstUserEmailAddressAndPassword()
+        {
             var jsonData = ScenarioContext.Current.Get<UserData>("UserData");
 
             string signinEmailAddress = jsonData.emailAddress;

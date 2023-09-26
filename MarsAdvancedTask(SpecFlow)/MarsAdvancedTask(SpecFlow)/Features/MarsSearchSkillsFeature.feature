@@ -6,7 +6,9 @@ So that I can search skills by using filter
 
 @tag1
 Scenario Outline: Search skill by using online option filter
-Given I logged into the Mars portal by using valid credentials
+Given I logged into the Mars portal by using first user valid credentials
+Then I clicked the sigin botton
+Then I insert the first user vaild email and password
 When I go to the home page by click the Mars Logo
 And I insert '<SkillName1>' into the search bar and select the online option
 Then I click into the first listing
@@ -17,7 +19,9 @@ Examples:
 | Music      |
 
 Scenario Outline: Search skill by using on-site option filter
-Given I logged into the Mars portal by using valid credentials
+Given I logged into the Mars portal by using first user valid credentials
+Then I clicked the sigin botton
+Then I insert the first user vaild email and password
 When I go to the home page by click the Mars Logo
 And I insert '<SkillName2>' into the search bar and select the on-site option
 Then I click into the first listing

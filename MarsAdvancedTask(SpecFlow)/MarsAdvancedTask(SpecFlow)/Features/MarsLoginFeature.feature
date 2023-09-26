@@ -6,6 +6,7 @@ So that I can see my profile
 
 @tag1
 Scenario: I use valid credentials to signin
-Given I click the Sign In button
+Given I use this json data file to login the portal
+Then I click the sign in button
 When I enter valid emailAddress and password
 Then I should be able to see my account UserName in the profile page
